@@ -36,7 +36,11 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": "https://eventgriddac68.eastus-1.eventgrid.azure.net/api/events",
-					"method": "POST"
+					"method": "POST",
+					"headers": {
+						"aeg-sas-key": "x89w1yV5Jln/6rfVjA+wKW6uMTjlJYGTkhzbe4sSpso="
+					},
+					"body": "@concat('[{\"id\":\"',string(rand(1,50000)),'\",\"eventType\":\"pipelineReceiver01\",\"subject\":\"test\",\"eventTime\":\"2021-08-10T21:03:07+00:00\",\"data\":{\"status\":\"complete\"},\"dataVersion\":\"1.0\"}]')\n"
 				}
 			}
 		],
