@@ -1,0 +1,26 @@
+{
+	"name": "pipelineCAllee",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "text",
+					"value": {
+						"value": "@pipeline().RunId",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"text": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
