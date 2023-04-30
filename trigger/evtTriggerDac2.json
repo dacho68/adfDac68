@@ -1,0 +1,24 @@
+{
+	"name": "evtTriggerDac2",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipelineEvtDac2",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "CustomEventsTrigger",
+		"typeProperties": {
+			"subjectEndsWith": "",
+			"subjectBeginsWith": "dac2",
+			"scope": "/subscriptions/2de5fc16-4dbe-48b0-883c-501c1a9958a6/resourceGroups/dacresgroup/providers/Microsoft.EventGrid/topics/eventGridDac68",
+			"events": [
+				"adf"
+			]
+		}
+	}
+}
