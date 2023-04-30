@@ -1,5 +1,5 @@
 {
-	"name": "trigger1",
+	"name": "eventGridTrigger",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -13,7 +13,7 @@
 		],
 		"type": "CustomEventsTrigger",
 		"typeProperties": {
-			"subjectEndsWith": "",
+			"subjectEndsWith": "test",
 			"subjectBeginsWith": "dac1",
 			"scope": "/subscriptions/2de5fc16-4dbe-48b0-883c-501c1a9958a6/resourceGroups/dacresgroup/providers/Microsoft.EventGrid/topics/eventGridDac68",
 			"events": [
