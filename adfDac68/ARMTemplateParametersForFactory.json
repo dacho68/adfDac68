@@ -4,6 +4,9 @@
 	"parameters": {
 		"factoryName": {
 			"value": "adfDac68"
+		},
+		"eventGridTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/2de5fc16-4dbe-48b0-883c-501c1a9958a6/resourceGroups/dacresgroup/providers/Microsoft.EventGrid/topics/eventGridDac68"
 		}
 	}
 }

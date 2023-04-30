@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adfDac68"
 		},
+		"eventGridTrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/2de5fc16-4dbe-48b0-883c-501c1a9958a6/resourceGroups/dacresgroup/providers/Microsoft.EventGrid/topics/eventGridDac68"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -33,6 +37,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"eventGridTrigger_properties_typeProperties_scope": {
+						"value": "[parameters('eventGridTrigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
