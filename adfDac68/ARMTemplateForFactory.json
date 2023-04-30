@@ -10,6 +10,10 @@
 		"eventGridTrigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/2de5fc16-4dbe-48b0-883c-501c1a9958a6/resourceGroups/dacresgroup/providers/Microsoft.EventGrid/topics/eventGridDac68"
+		},
+		"evtTriggerDac2_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/2de5fc16-4dbe-48b0-883c-501c1a9958a6/resourceGroups/dacresgroup/providers/Microsoft.EventGrid/topics/eventGridDac68"
 		}
 	},
 	"variables": {
@@ -77,6 +81,60 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipelineCAllee')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipelineEvtDac2')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Wait1",
+						"type": "Wait",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 1
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/evtTriggerDac2')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipelineEvtDac2",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "CustomEventsTrigger",
+				"typeProperties": {
+					"subjectEndsWith": "",
+					"subjectBeginsWith": "dac2",
+					"scope": "[parameters('evtTriggerDac2_properties_typeProperties_scope')]",
+					"events": [
+						"adf"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipelineEvtDac2')]"
 			]
 		}
 	]
